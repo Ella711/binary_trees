@@ -62,6 +62,8 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	if (tree->left && tree->right)
 		perfection = binary_tree_balance(tree);
+	else
+		return (0);
 
 	if (perfection == 0)
 		return (1);
