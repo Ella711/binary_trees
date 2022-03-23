@@ -20,23 +20,21 @@ int max(int num1, int num2)
 size_t recursive_height(const binary_tree_t *tree)
 {
 	if (!tree)
-		return (-1);
+		return (0);
 
 	return (max(recursive_height(tree->left), recursive_height(tree->right) + 1));
 }
-
 /**
  * binary_tree_height - measures the height of a binary tree
  *
  * @tree: node type binary_tree_t
  * Return: height of a binary tree
  */
-
 size_t binary_tree_height(const binary_tree_t *tree)
 {
 	if (!tree || (!tree->left && !tree->right))
 		return (0);
 
-	return (recursive_height(tree));
+	return (recursive_height(tree) - 1);
 }
 
