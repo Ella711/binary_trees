@@ -19,7 +19,7 @@ int max(int num1, int num2)
  */
 size_t recursive_height(const binary_tree_t *tree)
 {
-	if (!tree)
+	if (!tree || (!tree->left && !tree->right))
 		return (0);
 
 	return (max(recursive_height(tree->left), recursive_height(tree->right) + 1));
@@ -32,7 +32,7 @@ size_t recursive_height(const binary_tree_t *tree)
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	if (!tree || (!tree->left && !tree->right))
+	if (!tree)
 		return (0);
 
 	return (recursive_height(tree) - 1);
