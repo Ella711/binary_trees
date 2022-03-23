@@ -7,10 +7,19 @@
  * Return: height of a binary tree
  */
 
+size_t recursion_tree_depth(const binary_tree_t *tree)
+{
+    if (tree == NULL)
+        return (0);
+
+    return (recursion_tree_depth(tree->parent) + 1);
+}
+
 size_t binary_tree_depth(const binary_tree_t *tree)
 {
-    if (!tree)
-        return (-1);
+    if (tree == NULL)
+        return (0);
 
-    return (binary_tree_depth(tree->parent) + 1);
+    size_t result = recursion_tree_depth(tree);
+    return (result - 1);
 }
